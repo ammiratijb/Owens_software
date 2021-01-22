@@ -28,7 +28,7 @@ Edit: J.-B. Ammirati, JAN 2021
 
 I decided to put those codes on GitHub.
 They're very useful to compute RF using a pulse stripping deconvolution method: 
-(Ligorrıa, J. and Ammon, C.J., 1999. Iterative deconvolution and receiver function estimation,Bull. seism. Soc. Am.,89,1395–1400)
+(Ligorrıa, J. and Ammon, C.J., 1999. Iterative deconvolution and receiver function estimation, Bull. seism. Soc. Am.,89,1395–1400)
 
 To compile everything, just run ./Compile_All.sh
 binaries are placed in the bin directory. Then, set your PATH accordingly.
