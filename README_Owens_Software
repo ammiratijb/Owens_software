@@ -1,0 +1,39 @@
+This distribution is intended for people who know a little about software development, compiling programs, Makefiles, etc.
+
+The codes work for me with the g95 compile (www.g95.org) on G4/G5 Macs, Linux (64-bit Opteron processor), and Intel Macs.
+There are still a fair number of warning messages, but ... look closely ... its easy to lose errors in a bunch of warnings.
+
+This is unlikely to be a turnkey, blackbox, distribution.  
+You need to look over any error messages and try to fix things before coming to me for help.
+
+Steps:
+
+1.  Try running Compile_All.sh
+
+If it actually works, you will have all the executables in the bin directory!
+
+If it doesn't, then work down that script directory by directory and see what went wrong.
+
+2.  When codes in Rcvr_Func_Codes and Seismic_Utilites compile, there are test examples to run in various subdirectories.  Run those and convince yourself that things are running.
+
+There are README type files around and about to help you understand things.  Look at them all.
+
+Sorry this is not more user-friendly.  But, as they say, these work for me.  
+Maybe I will get better at distributions over time.
+
+thanks, tjo
+
+################################################################################
+Edit: J.-B. Ammirati, JAN 2021
+
+I decided to put those codes on GitHub
+They're very useful to compute RF using a pulse stripping deconvolution method 
+(Ligorrıa, J. and Ammon, C.J., 1999. Iterative deconvolution and receiverfunction 
+estimation,Bull. seism. Soc. Am.,89,1395–1400)
+
+To compile everything, just run ./Compile_All
+binaries are placed in the bin directory. Then, set your PATH accordingly.
+
+Everything works with the gfortran compiler on Linux64 and MACOS
+Be careful, newer versions of gfortran (e.g. V10) return errors, make sure to 
+use a previous version (V6 and V7 are fine)

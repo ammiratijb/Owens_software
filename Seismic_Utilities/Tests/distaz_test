@@ -1,0 +1,32 @@
+#
+# sh script to test various quadrants for any new versions of distaz
+# assumes that the original was correct!
+#
+# tjo, december 2006
+#
+../distaz  30.  30.  40.  40.
+../distaz  30.  30. -40. -40.
+../distaz  30.  30.  40. -40.
+../distaz  30.  30. -40.  40.
+#
+../distaz -30. -30. -40. -40.
+../distaz -30. -30.  40.  40.
+../distaz -30. -30. -40.  40.
+../distaz -30. -30.  40. -40.
+#
+../distaz -30.  30. -40. -40.
+../distaz -30.  30.  40.  40.
+../distaz -30.  30. -40.  40.
+../distaz -30.  30.  40. -40.
+#
+../distaz  30. -30. -40. -40.
+../distaz  30. -30.  40.  40.
+../distaz  30. -30. -40.  40.
+../distaz  30. -30.  40. -40.
+#
+../distaz  0. 0. 90. 0.
+../distaz  0  0  90  0 
+../distaz  -90. 180. 90. 0.
+# 
+../distaz 34. -125. 34. -125.
+../distaz 34. -125. 40. -120.

@@ -1,0 +1,35 @@
+../ray3d << %
+test.mod
+y
+.04
+0.0
+y
+y
+n
+10.
+n
+ 2
+ 2 3
+n
+y
+ 2
+n
+ 2
+y
+y
+y
+0.1
+50.
+10.
+test
+test
+y
+n
+n
+test
+test
+1
+1.
+n
+n
+%

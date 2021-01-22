@@ -1,0 +1,43 @@
+Hi ...
+
+This directory contains source and test files for program RAY3D, which traces rays 
+for receiver function generation in themedium consisting of homogeneous flat or dipping layers.
+
+The code itself has existed since 1982 in various forms.  No version numbers were ever assigned
+until version 2004.171!  It now prints out the version when the code is started.  
+
+The current version is 2007.154
+
+Because some very old versions of the code seem to exist out there in user directories around the world and because
+some of them clearly have bugs, it is strongly recommended that old versions of the code are discarded and replaced with this one.  
+
+Specifically, there was a buggy version on Chuck Ammon's web page until about 2002.  If got ray3d from there, your results may be 
+wrong for some dipping layer models.  
+
+This distribution is the first known to work with FORTRAN-95 compilers.  In fact, a FORTRAN-95 is required.  g95 from www.g95.org is what I use.  gfortran from GNU (gcc version 4.2.0 or higher) should work.  
+
+I have tested at this point only under Mac OSX on a PowerPC and Intel processors as well under an AMD Opteron processor under Linux.  It works and generates identical results as I use to get under Solaris with f77 on an early version, with the exception of the bug noted below.
+
+There is a Makefile.  Plus, you need the TJO Fortran Library in the appropriate place.  If you got the file you are reading from me,
+you should have everything you need.
+
+Copy test_input/test.mod and Run_Test_Case.sh into a Local_Tests directory and then run the script and see what happens.  Directory Test_Output has older results to confirm things seem OK.
+
+Your only other task is to read and understand the file RAY3D_Session file in this directory.  It has some
+helpful hints on how you should properly use RAY3D, including how you should do things when phases shifts
+are generated.  Failure to follow this guidelines will lead to erroneous seismograms.
+
+Known Bugs:
+
+The current version has some problem convolving with a source function.  This is a "biggie", but I'm
+releasing this anyway.  For the test case, your test_sy.[rt] files will not match the ones in test_output.  
+The relative amplitudes are OK, but the absolute amplitudes are off by a factor of 10**-19 or so.
+Sorry about that.  The test_sy.z is correct though!
+
+There is some wrap around problem with some seismogram links when generating synthetics (as opposed to 
+spike files).  I'm tracking that down soon.
+
+Have fun!
+
+bye, tjo
+owens@seis.sc.edu

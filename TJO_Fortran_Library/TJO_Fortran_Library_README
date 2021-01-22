@@ -1,0 +1,87 @@
+Subroutine Library of TJ Owens
+
+This library has evolved since around 1980.  Some of the routines have morphed from those provided by others in
+my early days of programming and the original authors are unclear in some cases.  I acknowledge and thank these
+anonymous contributors and will happily explicitly acknowledge anyone who steps forward to assert their 
+contribution.
+
+Some of these routines, especially the io routines, require a common block in the main program.  
+This can be gleaned from looking at the code, as can the proper usage.
+
+The routines, organized in logical subsets, are:
+
+==============
+  IO Routines
+=============
+
+     function ask(quest)  - interactive i-o for real numbers, ask a question in quotes, respond with a real number
+     subroutine asktxt(quest,answer) - interactive i-o for character strings, respond with a string
+     function iask(quest) - interactive i-o for integer responses.
+     logical function yesno(quest) - interactive i-o for logical responses.
+
+==================
+  Character Information/Manipulation
+==================
+
+     integer function blank(file)  --routine to find the position of the first blank (' ')
+     integer function period(file) -- routine to find the position of the first period ('.') in a string
+     integer function uscore(file) -- routine to find the position of the first underscore ('_') in a string
+
+=================
+  Date/Time manipulations
+=================
+
+      integer function daymo (dofy,month,day,year) - Julian Day/Year to Month/Day
+      integer function doy (month,day,year) - Month/Day to Julian Day
+      subroutine juli(yr,jday,month,iday,monum) - Another Julian day to month/day subroutine
+      integer function lpyr(year) - determines if a year is a leap year
+
+==============
+  Seismic Utilities
+==============
+
+     subroutine sacio(file,x,np,dt,inout) - writes a SAC file without access to SAC libraries
+     subroutine rotseis(x,m,n,baz,az,npts) - rotates a 3-component seismogram
+     subroutine azdist(stalat, stalon, evtlat, evtlon,delta, az, baz) - compute Great Circle Arc distance.
+
+     subroutine rdlyrs (sitefl,nlyrs,title,vp,vs,rho,h,qp,qs,strike,dip,iflag,ier) - reads a layered model
+     subroutine iniocm - related to sacio and /tjocm/ block initialization
+
+     subroutine coef8(p,vp1,vs1,ro1,vp2,vs2,ro2,ncode,nd,rmod,rph) - compute reflection/transmission coefficients.
+     subroutine coefsh(p,vs1,rho1,vs2,rho2,ncode,rmod,rph) - reflection/transmission for SH waves
+
+     function fsorce (isorfn,f,delay,kstrtd,a,b,t,wo,trap) - returns one of several standard source functions
+     real function ptrvlt(gcarc,depth,itbl) - returns P-travel time in Herrin model by reading a table
+     subroutine seisio(freq,peak,xr,xi,inout) - adds/removes a WWSSN instrument response
+     subroutine sit2(psvsh,c,freq,resp,alfa,beta,qp,qs,rho,thik,nlyrs) - Thomson-Haskel layered response
+
+=================
+  Math and Signal Processing
+================
+
+      subroutine coord(x,theta,delta,y,trans,same) - coordinate transformation for 3-component vector
+      function dot(x,y) - returns dot product of 3-component vectors x and y
+      subroutine max(x,n,xmax) - returns maximum value of x, length n
+      subroutine minmax(x,npts,min,max,mean) - returns min, max and mean of x, length npts
+      function npowr2(n) - returns next power of 2 greater than integer n
+      function sinc(x) - calculates and returns sin(x)/x for a real number x
+      subroutine zeerow(x,start,end) - zeroes array x in the range of indexes from "start" to "end"
+
+      subroutine dfftr (x,nft,dirctn,delta) - Tony Shakal's FFT routine
+      call myfft (x,nftby2,+1) - Part of FFT
+      subroutine locast(dirctn,invrse,forwrd) - Part of FFT
+      subroutine myfft(data,nn,isign) - Part of FFT
+
+
+=================
+Lawson/Hanson routines from Chuck Ammon for use with some of his routines
+These are in a separate library (lh.a)
+=================
+
+      function diffr(x,y) - returns difference between x and y, lawson/hanson routine
+      subroutine g1(a,b,cos,sin,sig) - lawson/hanson routine
+      subroutine g2(cos,sin,x,y) - lawson/hanson routine
+      subroutine h12(mode,lpivot,l1,m,u,iue,up,c,ice,icv,ncv) - lawson/hanson routine
+      subroutine qrbd(ipass,q,e,nn,v,mdv,nrv,c,mdc,ncc) - lawson/hanson routine
+      subroutine svdrs(a,mda,mm,nn,b,mdb,nb,s) - lawson/hanson SVD routine
+

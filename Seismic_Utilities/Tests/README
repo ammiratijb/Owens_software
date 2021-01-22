@@ -1,0 +1,11 @@
+To run the distaz test:
+
+1. sh -x distaz_test > tmpo
+
+2. diff tmpo distaz_test_output_linux_gfortran_121006
+
+3. Hope there is no output!
+
+4. if all is well, mv tmpo [an appropriate name] so others will benefit
+
+5. add the [an appropriate name] file to svn
